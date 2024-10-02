@@ -1,0 +1,10 @@
+# Three.js specific files
+node_modules/
+dist/
+build/
+*.log
+*.tmp
+
+# Common files to ignore
+.DS_Store
+Thumbs.db
