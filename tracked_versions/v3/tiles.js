@@ -20,7 +20,7 @@ import { createGrass } from "./grass";
 import { addLocationVariance, positionBladeInTile } from "./utils";
 
 // ---- SETTINGS ----
-const GRID_SIZE = 16;
+const GRID_SIZE = 1;
 const ROW_SIZE = Math.floor(Math.sqrt(GRID_SIZE));
 const TILE_OFFSET = 2.05;
 
@@ -118,10 +118,11 @@ function createTiles() {
   let fullTime = 0;
   group.tick = (delta) => {
     fullTime += delta / 10;
+
     if (fullTime >= 1) fullTime = 0;
     let windPos = windPosFunc(fullTime);
     let windDir = windDirFunc(fullTime);
-    const uniforms = { delta, windPos, windDir };
+    const uniforms = { delta:fullTime, windPos, windDir };
     group.children.forEach((c) => c.tick(uniforms));
   };
   console.log(group)

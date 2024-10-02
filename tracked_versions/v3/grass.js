@@ -62,7 +62,7 @@ function createGrass({ lineWidth, numPoints, curveVariance }) {
         float angle = acos( dot( normalize(wind_dir.y-wind_dir.x), normalize(wind_dir.z-wind_dir.x) ) );
         float newX = mvPos.y * (mvPos.x + mvPos.x * cos(angle));
         float newY = mvPos.y * (mvPos.y + mvPos.x * sin(angle));
-        vec3 newPos = vec3(mvPos); 
+        vec3 newPos = vec3(mvPos.x, newY, mvPos.z); 
         vPos = newPos; 
 
         gl_Position = projectionMatrix * viewMatrix * vec4(newPos, 1.0);
